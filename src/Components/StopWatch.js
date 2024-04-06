@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react'
 
 const StopWatch = () => {
-    const [seconds, setSeconds] = useState(56);
+    const [millisecond, setMillisecond] = useState(0);
+    const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [toggleStart, setToggleStart] = useState(true);
 
     useEffect(()=> {
        
         const intervalId = setInterval(() => {
-          return !toggleStart && (seconds === 59 ? 
-            (setMinutes((minutes)=> minutes+1), setSeconds(0)) 
-            : setSeconds((seconds)=> seconds+1) )
-        }, 1000);
+          return !toggleStart && (
+            millisecond > 900 ? (
+                (seconds == 59 ? (setMinutes((minutes) => minutes + 1 ), setSeconds(0), setMillisecond(0)) : setSeconds((seconds)=> seconds+1), setMillisecond(0)) 
+                )
+            : setMillisecond((millisecond)=> millisecond+10)
+            )
+        }, 10);
             return () => {
                 clearInterval(intervalId);
             }
 
-    }, [toggleStart, seconds, minutes])
+    }, [toggleStart, millisecond, seconds, minutes])
 
     const handleStartStop = () => {
         setToggleStart(!toggleStart);
@@ -24,13 +28,13 @@ const StopWatch = () => {
 
     const handleReset = () => {
         setToggleStart(false);
-        setSeconds(56)
+        setSeconds(0)
     }
 
     return (
         <>
             <div>Stop Watch</div>
-            <div>{minutes < 10 ? <span>0{minutes}</span> : <span>{minutes}</span>} : {seconds < 10 ? <span>0{seconds}</span> : <span>{seconds}</span>}</div>
+            <div>{minutes < 10 ? <span>0{minutes}</span> : <span>{minutes}</span>} : {seconds < 10 ? <span>0{seconds}</span> : <span>{seconds}</span>}:{millisecond}</div>
             <button onClick={handleStartStop}>{toggleStart ? "Start" : "Stop"}</button>
             <button onClick={handleReset}>Reset</button>
         </>
