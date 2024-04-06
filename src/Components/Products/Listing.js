@@ -1,11 +1,10 @@
 import React from 'react'
 
-const Listing = ({productMasterList}) => {
-    console.log(productMasterList);
+const Listing = ({productList}) => {
 
   return (
     <>
-    {productMasterList.map((product)=> { 
+    {productList.map((product)=> { 
      return <tr key={product.id}>
        <td>{product.id}</td>
        <td>{product.title}</td>
