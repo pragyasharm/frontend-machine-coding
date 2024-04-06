@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import StopWatch from './Components/StopWatch';
+import ProductListpage from './Components/Products/ProductListpage';
 
 function App() {
   return (
     <div className="App">
-      <StopWatch/>
+      <ProductListpage/>
     </div>
   );
 }

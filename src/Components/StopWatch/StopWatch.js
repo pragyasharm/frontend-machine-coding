@@ -13,9 +13,9 @@ const StopWatch = () => {
             millisecond > 900 ? (
                 (seconds == 59 ? (setMinutes((minutes) => minutes + 1 ), setSeconds(0), setMillisecond(0)) : setSeconds((seconds)=> seconds+1), setMillisecond(0)) 
                 )
-            : setMillisecond((millisecond)=> millisecond+10)
+            : setMillisecond((millisecond)=> millisecond+1)
             )
-        }, 10);
+        }, 1);
             return () => {
                 clearInterval(intervalId);
             }
