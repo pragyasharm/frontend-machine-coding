@@ -8,10 +8,10 @@ const StopWatch = () => {
     useEffect(()=> {
        
         const intervalId = setInterval(() => {
-          return !toggleStart && (seconds === 59 ? (setMinutes((minutes)=> minutes+1), setSeconds(0)): setSeconds((seconds)=> seconds+1) )
+          return !toggleStart && (seconds === 59 ? 
+            (setMinutes((minutes)=> minutes+1), setSeconds(0)) 
+            : setSeconds((seconds)=> seconds+1) )
         }, 1000);
-    
-
             return () => {
                 clearInterval(intervalId);
             }
