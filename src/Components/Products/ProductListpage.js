@@ -4,13 +4,12 @@ import Listing from './Listing';
 
 const ProductListpage = () => {
     const [productMasterList, setProductMasterList] = useState([]);
-    const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     
     console.log("inside component");
     const StartIndex = (currentPage - 1)*ItemsPerPage
     const EndIndex = StartIndex + ItemsPerPage
-    //const productList = productMasterList && productMasterList.slice(StartIndex, EndIndex)
+    const productList = productMasterList && productMasterList.slice(StartIndex, EndIndex)
     useEffect(() => {
         getListing();
 
@@ -20,17 +19,16 @@ const ProductListpage = () => {
         const resposne = await fetch(API);
         const data = await resposne.json()
         setProductMasterList(data.products);
-        setProducts(productMasterList.slice(StartIndex, EndIndex))
     }
-    //{productMasterList && setProductList(productMasterList) }
-    //productMasterList.length !== 0 && setProductList(productMasterList.slice(StartIndex, EndIndex))
 
     const handleNext = () => {
         setCurrentPage((currentPage)=> currentPage+1)
+
     }
 
     const handlePrevious = () => {
         if(currentPage>1) setCurrentPage((currentPage)=> currentPage-1)
+
     }
 
     return (
@@ -46,7 +44,7 @@ const ProductListpage = () => {
                 </thead>
                 <tbody>
                 
-                {products && <Listing products={products} /> }
+                {productList && <Listing productList={productList} /> }
                 </tbody>
             </table>
             <button onClick={handlePrevious}>Previous</button>

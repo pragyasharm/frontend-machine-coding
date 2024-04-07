@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Listing = ({products}) => {
+const Listing = ({productList}) => {
 
   return (
     <>
-    {products.map((product)=> { 
+    {productList.map((product)=> { 
      return <tr key={product.id}>
        <td>{product.id}</td>
        <td>{product.title}</td>
