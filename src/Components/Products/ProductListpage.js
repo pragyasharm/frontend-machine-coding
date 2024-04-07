@@ -11,7 +11,7 @@ const ProductListpage = () => {
     const StartIndex = (currentPage - 1) * ItemsPerPage
     const EndIndex = StartIndex + ItemsPerPage
 
-    //console.log("inside component before slice");
+    console.log("inside component before slice");
     console.log((products));
     const productList = products && products.slice(StartIndex, EndIndex)
     console.log((productList));
@@ -39,11 +39,12 @@ const ProductListpage = () => {
     const handleSort = (e) => {
         const sortCritria = e.target.id
         let sortedArray
-        if (sortCritria === "number" || sortCritria === "id") {
+        if (sortCritria === "price" || sortCritria === "id") {
             sortedArray = products.sort((a, b) => a[sortCritria] - b[sortCritria]);
         } else {
             sortedArray = products.sort((a, b) => a[sortCritria].localeCompare(b[sortCritria]));
         }
+        console.log("sorted array");
         setProducts(sortedArray)
     }
     const handleSearch = () => {
@@ -67,7 +68,7 @@ const ProductListpage = () => {
                     <th id='category'>Category</th>
                 </thead>
                 <tbody>
-                    {/*console.log("rendeing the component again") */}
+                    {console.log("rendeing the component again")}
                     {productList && <Listing productList={productList} />}
                 </tbody>
             </table>
