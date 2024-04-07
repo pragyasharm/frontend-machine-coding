@@ -49,13 +49,14 @@ const ProductListpage = () => {
     const handleSearch = () => {
         console.log(searchText);
         const filteredProducts = productMasterList.filter((res) => res.title.toLowerCase().includes(searchText));
+        setCurrentPage(1)
         setProducts(filteredProducts);
     }
 
     return (
         <div>
             <div>This is the list of Products</div>
-            <input type='text' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+            <input type='text' value={searchText} onChange={(e) => setSearchText(e.target.value.toLocaleLowerCase())} />
             <button onClick={handleSearch}>Search</button>
             <table>
                 <thead onClick={handleSort}>
