@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Listing = ({productList}) => {
-
+  console.log("final rendering products")
+  console.log(productList);
   return (
     <>
     {productList.map((product)=> { 
