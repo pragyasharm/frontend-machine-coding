@@ -1,13 +1,12 @@
 import './App.css';
 import ProductListpage from './Components/Products/ProductListpage';
-import ReactDOM from "react-dom/client";
 import Scroller from './Components/Products/Scroller';
-import LandingPageLayout from './Components/Products/Mainlayout/LandingPagelayout';
-import { createBrowserRouter } from 'react-router-dom';
+import { Link, createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
 import React from 'react'
 import Body from './Components/Body'
 import ProductHeader from './Components/Products/ProductHeader';
+import MainProductContainer from './Components/Products/MainProductContainer';
 
   
 const appRouter = createBrowserRouter([{
@@ -18,6 +17,14 @@ const appRouter = createBrowserRouter([{
       path: "/",
       element: <ProductListpage/>
     },
+    {
+      path: "/scroller",
+      element: <Scroller/>
+    },
+    {
+      path: "/product-card",
+      element: <MainProductContainer/>
+    }
     ]
 }])
 
