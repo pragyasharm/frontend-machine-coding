@@ -33,19 +33,6 @@ function App() {
       <div>
         <ProductHeader />
         <RouterProvider router={appRouter}/>
-        {
-          /** 
-           * Head
-           * Body
-           *  sidebar
-           *   Menuitems
-           *  maincontainer
-           *   buttonslist
-           *   videocontainer
-           *    videocard 
-           * 
-           */
-        }
       </div>
   );
 }

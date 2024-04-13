@@ -19,7 +19,7 @@ const MainProductContainer = () => {
 
         {/** display product card */}
         
-        <div className="">
+        <div className="flex overflow-hidden">
           {data && data.map((product)=> {
               return <ProductCard key={product.id} product={product}/>
           })}

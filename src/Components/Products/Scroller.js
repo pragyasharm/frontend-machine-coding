@@ -2,7 +2,7 @@ import React from 'react'
 
 const Scroller = () => {
   return (
-    <div></div>
+    <div>Scroller here</div>
   )
 }
 
