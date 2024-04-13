@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 const Body = () => {
   return (
     
-    <div className="flex">
+    <div>
       <Outlet/>
     </div>
   )
