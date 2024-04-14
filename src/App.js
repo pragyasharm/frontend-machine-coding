@@ -8,6 +8,8 @@ import Scroller from './Components/Products/Scroller';
 import MainProductContainer from './Components/Products/MainProductContainer';
 import MoveSwapComponent from './Components/MoveNswap/MoveSwapComponent';
 import Calculator from './Components/Calculator/Calculator';
+import Accordian from './Components/Accordian/Accordian';
+import PrivateRoutes from './Components/PrivateRoutes';
 
 function App() {
   return (
@@ -16,12 +18,14 @@ function App() {
         <Header />
         <Routes> {/* Use Routes to define your routes */}
           <Route path="/" element={<Body />} />
-
           <Route index element={<ProductListpage />} />
           <Route path="/scroller" element={<Scroller />} />
           <Route path="/product-card" element={<MainProductContainer />} />
           <Route path="/move-swap" element={<MoveSwapComponent />} />
-          <Route path="/calculator" element={<Calculator/>} />
+          <Route element={<PrivateRoutes />}>
+            <Route path="/calculator" element={<Calculator />} />
+            <Route path="/accordian" element={<Accordian />} />
+          </Route>
         </Routes>
       </div>
     </Router>
