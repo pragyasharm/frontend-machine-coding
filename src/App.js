@@ -7,6 +7,7 @@ import ProductListpage from './Components/Products/ProductListpage';
 import Scroller from './Components/Products/Scroller';
 import MainProductContainer from './Components/Products/MainProductContainer';
 import MoveSwapComponent from './Components/MoveNswap/MoveSwapComponent';
+import Calculator from './Components/Calculator/Calculator';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/scroller" element={<Scroller />} />
           <Route path="/product-card" element={<MainProductContainer />} />
           <Route path="/move-swap" element={<MoveSwapComponent />} />
+          <Route path="/calculator" element={<Calculator/>} />
         </Routes>
       </div>
     </Router>

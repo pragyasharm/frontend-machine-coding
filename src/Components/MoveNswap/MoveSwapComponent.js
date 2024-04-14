@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { moveLeft, moveRight } from './store/movableSlice'
+import { moveLeft, moveRight } from '../store/movableSlice'
 
 const MoveSwapComponent = () => {
     const leftData = useSelector(appStore => appStore.move.leftComponent)
