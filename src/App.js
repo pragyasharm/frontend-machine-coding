@@ -10,6 +10,7 @@ import MoveSwapComponent from './Components/MoveNswap/MoveSwapComponent';
 import Calculator from './Components/Calculator/Calculator';
 import Accordian from './Components/Accordian/Accordian';
 import PrivateRoutes from './Components/PrivateRoutes';
+import SearchPage from './Components/SearchBar/SearchPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/scroller" element={<Scroller />} />
           <Route path="/product-card" element={<MainProductContainer />} />
           <Route path="/move-swap" element={<MoveSwapComponent />} />
+          <Route path="/search" element={<SearchPage/>} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />

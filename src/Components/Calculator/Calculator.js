@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 const Calculator = () => {
     const [value, setValue] = useState('');
     const handleCalculations = (e) => {
-        console.log(e.target.textContent);
         const clickedValue = e.target.textContent;
         const digitRegex = /^[0-9]$/;
         if (digitRegex.test(clickedValue)) {
@@ -20,7 +19,7 @@ const Calculator = () => {
         } else {
             const lastChar = value.charAt(value.length - 1);
             if(lastChar === '/' || lastChar === '*' || lastChar === '+' || lastChar === '-'){
-
+                setValue((value)=> value.slice(0,-1) + clickedValue)
             } else {
                 setValue((value)=> value + clickedValue)
             }
