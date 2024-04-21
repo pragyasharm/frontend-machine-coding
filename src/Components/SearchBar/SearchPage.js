@@ -37,7 +37,7 @@ const SearchPage = () => {
         { searchResult && 
         <div className='flex justify-center'>
             <ul className='w-80 shadow-md'>
-                {searchResult.map((text)=>{return <li className='border-t-[1px] pt-2 border-gray-300'>{text}</li>})}
+                {searchResult.map((text, index)=>{return <li key={index} className='border-t-[1px] pt-2 border-gray-300'>{text}</li>})}
             </ul>
         </div>
 

@@ -10,7 +10,9 @@ import MoveSwapComponent from './Components/MoveNswap/MoveSwapComponent';
 import Calculator from './Components/Calculator/Calculator';
 import Accordian from './Components/Accordian/Accordian';
 import PrivateRoutes from './Components/PrivateRoutes';
-import SearchPage from './Components/SearchBar/SearchPage';
+import SearchPage from './Components/SearchBar/SearchPage'; 
+import Context from './Components/UseContextExample/Context';
+import AutoCompleteComponent from './Components/AutoComplete/AutoCompleteComponent';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/product-card" element={<MainProductContainer />} />
           <Route path="/move-swap" element={<MoveSwapComponent />} />
           <Route path="/search" element={<SearchPage/>} />
+          <Route path='/context' element={<Context/>}/>
+          <Route path='/autocomplete' element={<AutoCompleteComponent/>}/>
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />
