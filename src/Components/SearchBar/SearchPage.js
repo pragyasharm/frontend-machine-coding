@@ -9,11 +9,9 @@ const SearchPage = () => {
     const timer = setTimeout(()=> {     
         getSearchSuggestion()
     }, 200)
-    
     return ()=> {
         clearTimeout(timer);
     }
-
   }, [searchQuery])
 
  const getSearchSuggestion = async() => {

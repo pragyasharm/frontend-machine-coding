@@ -17,15 +17,20 @@ const AutoCompleteComponent = () => {
         }
     }
 
+ const handleSelectedValue = (e) => {
+    setInputText(e.target.textContent)
+    setSuggestions([])
+ }
+
   return (
     <div>
         <h1>AutoComplete Component</h1>
         <div className='flex-row'>
             <div className=''>
-               <input type='text' value={inputText} onChange={handleInputChange}/>
+               <input type='text' className='border border-gray-900 rounded-md' value={inputText} onChange={handleInputChange}/>
             </div>
             {suggestions.length>0 && <div>
-                <ul>
+                <ul onClick={handleSelectedValue}>
                     {suggestions.map((suggest, index) => <li key={index} className='cursor-pointer'>{suggest}</li>)}
                 </ul>
 
