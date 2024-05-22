@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 const SearchPage = () => {
    const [searchQuery, setSearchQuery] = useState('');
    const [searchResult, setSearchResult] = useState([]);
+   const [displaySuggestion, setDisplaySuggestion] = useState(false)
 
 
   useEffect(()=>{
@@ -27,7 +28,8 @@ const SearchPage = () => {
            <h1 className='text-6xl'>Search bar</h1>
         </div>
         <div className='flex mt-12 justify-center'>
-            <input type='text' placeholder='Search your text here' onChange={(e)=> setSearchQuery(e.target.value)} className='border border-black rounded-lg p-2 w-72'/>
+            <input type='text' placeholder='Search your text here' onBlur={()=> setDisplaySuggestion(false)} onChange={(e)=> {setSearchQuery(e.target.value) 
+            }} onFocus={() => setDisplaySuggestion(true)} className='border border-black rounded-lg p-2 w-72'/>
             <button className='ml-4'>
             <img className='w-8' src={require('./magnifying-glass.png')} alt="magnifying-glass"/>
             </button>
@@ -35,7 +37,7 @@ const SearchPage = () => {
         { searchResult && 
         <div className='flex justify-center'>
             <ul className='w-80 shadow-md'>
-                {searchResult.map((text, index)=>{return <li key={index} className='border-t-[1px] pt-2 border-gray-300'>{text}</li>})}
+                { displaySuggestion && searchResult.map((text, index)=>{return <li key={index} className='border-t-[1px] pt-2 border-gray-300'>{text}</li>})}
             </ul>
         </div>
 

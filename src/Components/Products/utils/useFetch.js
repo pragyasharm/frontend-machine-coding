@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 function useFetch(API) {
     const [data, setData] = useState();
@@ -14,6 +15,14 @@ function useFetch(API) {
     const product = res.products
     const allCategory = product.map((p)=> p.category)
     const distinctCategories = [...new Set(allCategory)];
+    
+    try {
+      const res1 = await axios.get('https://jsonplaceholder.typicode.com/posts')
+      console.log(res1.data)
+    } catch (err) {
+       console.log(err.message)
+    }
+
     setData(product);
     setCategory(distinctCategories)
 

@@ -10,6 +10,7 @@ const Header = () => {
       <Link className='p-2' to='/calculator'>Calculator</Link>
       <Link className='p-2' to='/accordian'>Accordian</Link>
       <Link className='p-2' to='/search'>Search</Link>
+      <Link className='p-2' to='/game'>TicTacToe</Link>
     </div>
   )
 }

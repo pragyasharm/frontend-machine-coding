@@ -13,6 +13,9 @@ import PrivateRoutes from './Components/PrivateRoutes';
 import SearchPage from './Components/SearchBar/SearchPage'; 
 import Context from './Components/UseContextExample/Context';
 import AutoCompleteComponent from './Components/AutoComplete/AutoCompleteComponent';
+import Modalpage from './Components/Modal/Modalpage';
+import CarouselBody from './Components/Carousel/CarouselBody';
+import Game from './TicTacToe/Game';
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
           <Route path="/search" element={<SearchPage/>} />
           <Route path='/context' element={<Context/>}/>
           <Route path='/autocomplete' element={<AutoCompleteComponent/>}/>
+          <Route path='/modal' element={<Modalpage/>}/>
+          <Route path='/carousel' element={<CarouselBody/>}/>
+          <Route path='/game' element={<Game/>}/>
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />

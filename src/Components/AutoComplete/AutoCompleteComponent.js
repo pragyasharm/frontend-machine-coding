@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const masterData = ['Hello', 'How are you', 'Mhobbat', 'hum tum', 'kali kali julfo'];
+const masterData = ['Hello', 'How are you', 'Mhobbat', 'hum tum', 'kali kali julfo', 'meenal', 'meenakshi'];
 
 const AutoCompleteComponent = () => {
     const [inputText, setInputText] = useState('');
