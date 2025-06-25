@@ -1,0 +1,11 @@
+.container {
+  text-align: left;
+  padding-left: 20px;
+}
+.folder {
+  display: flex;
+  gap: 10px;
+}
+.icon {
+  width: 20px;
+}

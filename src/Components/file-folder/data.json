@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "public",
+    "isfolder": true,
+    "childern": [
+      {
+        "id": 2,
+        "name": "data.json",
+        "isfolder": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "src",
+    "isfolder": true,
+    "childern": [
+      {
+        "id": 4,
+        "name": "app.jsx",
+        "isfolder": false
+      },
+      {
+        "id": 5,
+        "name": "index.jsx",
+        "isfolder": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "package.json",
+    "isfolder": false
+  },
+  {
+    "id": 7,
+    "name": "package.lock",
+    "isfolder": false
+  }
+]
