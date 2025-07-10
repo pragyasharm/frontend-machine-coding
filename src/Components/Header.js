@@ -25,11 +25,17 @@ const Header = () => {
       <Link className="p-2" to="/game">
         TicTacToe
       </Link>
-      <Link className="p-2" to="/game">
-        TicTacToe
-      </Link>
       <Link className="p-2" to="/file-folder">
         File-folder
+      </Link>
+      <Link className="p-2" to="/pagination">
+        Pagination
+      </Link>
+      <Link className="p-2" to="/progress-bar">
+        Progess-bar
+      </Link>
+      <Link className="p-2" to="/nested-checkbox">
+        Nested-checkbox
       </Link>
     </div>
   );

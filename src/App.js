@@ -15,8 +15,11 @@ import Context from "./Components/UseContextExample/Context";
 import AutoCompleteComponent from "./Components/AutoComplete/AutoCompleteComponent";
 import Modalpage from "./Components/Modal/Modalpage";
 import CarouselBody from "./Components/Carousel/CarouselBody";
-import Game from "./TicTacToe/Game";
+import Game from "./Components/TicTacToe/Game";
 import FileFolderPage from "./Components/file-folder/FileFolderPage";
+import Pagination from "./Components/Pagination/Pagination";
+import ProgressContainer from "./Components/Progress-bar/ProgressContainer";
+import NestedCheckbox from "./Components/Nested-Checkboxes/NestedCheckbox";
 
 function App() {
   return (
@@ -40,6 +43,9 @@ function App() {
           <Route path="/carousel" element={<CarouselBody />} />
           <Route path="/game" element={<Game />} />
           <Route path="/file-folder" element={<FileFolderPage />} />
+          <Route path="/pagination" element={<Pagination />} />
+          <Route path="/progress-bar" element={<ProgressContainer />} />
+          <Route path="/nested-checkbox" element={<NestedCheckbox />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />
