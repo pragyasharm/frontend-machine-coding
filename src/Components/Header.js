@@ -37,6 +37,9 @@ const Header = () => {
       <Link className="p-2" to="/nested-checkbox">
         Nested-checkbox
       </Link>
+      <Link className="p-2" to="/otp-input">
+        OTP-input
+      </Link>
     </div>
   );
 };

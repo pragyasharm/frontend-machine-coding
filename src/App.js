@@ -20,6 +20,7 @@ import FileFolderPage from "./Components/file-folder/FileFolderPage";
 import Pagination from "./Components/Pagination/Pagination";
 import ProgressContainer from "./Components/Progress-bar/ProgressContainer";
 import NestedCheckbox from "./Components/Nested-Checkboxes/NestedCheckbox";
+import OTPInput from "./Components/OTP-Input/OTPInput";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/pagination" element={<Pagination />} />
           <Route path="/progress-bar" element={<ProgressContainer />} />
           <Route path="/nested-checkbox" element={<NestedCheckbox />} />
+          <Route path="/otp-input" element={<OTPInput />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />
