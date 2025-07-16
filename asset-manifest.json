@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend-machine-coding/static/css/main.613af99e.css",
-    "main.js": "/frontend-machine-coding/static/js/main.949eb7fc.js",
+    "main.js": "/frontend-machine-coding/static/js/main.f8a58682.js",
     "static/js/453.7b650c6f.chunk.js": "/frontend-machine-coding/static/js/453.7b650c6f.chunk.js",
     "static/media/image_3.jpg": "/frontend-machine-coding/static/media/image_3.b66b42f7b6438405234f.jpg",
     "static/media/image_2.jpg": "/frontend-machine-coding/static/media/image_2.f5462378d510a17af5d5.jpg",
@@ -9,11 +9,11 @@
     "static/media/magnifying-glass.png": "/frontend-machine-coding/static/media/magnifying-glass.91aabd7f2a93a5c92e59.png",
     "index.html": "/frontend-machine-coding/index.html",
     "main.613af99e.css.map": "/frontend-machine-coding/static/css/main.613af99e.css.map",
-    "main.949eb7fc.js.map": "/frontend-machine-coding/static/js/main.949eb7fc.js.map",
+    "main.f8a58682.js.map": "/frontend-machine-coding/static/js/main.f8a58682.js.map",
     "453.7b650c6f.chunk.js.map": "/frontend-machine-coding/static/js/453.7b650c6f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.613af99e.css",
-    "static/js/main.949eb7fc.js"
+    "static/js/main.f8a58682.js"
   ]
 }
