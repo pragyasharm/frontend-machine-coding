@@ -25,14 +25,10 @@ import RedditComment from "./Components/Reddit/RedditComment";
 
 function App() {
   return (
-    <Router>
-      {" "}
-      {/* Wrap your routes with BrowserRouter */}
+    <Router basename="/frontend-machine-coding">
       <div>
         <Header />
         <Routes>
-          {" "}
-          {/* Use Routes to define your routes */}
           <Route path="/" element={<Body />} />
           <Route index element={<ProductListpage />} />
           <Route path="/scroller" element={<Scroller />} />
