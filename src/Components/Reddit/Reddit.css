@@ -1,0 +1,11 @@
+button {
+  margin: 4px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  border: 1px solid blue;
+  padding: 8px;
+}

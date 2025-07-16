@@ -40,6 +40,9 @@ const Header = () => {
       <Link className="p-2" to="/otp-input">
         OTP-input
       </Link>
+      <Link className="p-2" to="/reddit-comment">
+        Reddit comment
+      </Link>
     </div>
   );
 };
