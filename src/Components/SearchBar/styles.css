@@ -1,0 +1,31 @@
+.search-input {
+  width: 350px;
+  padding: 5px;
+}
+.result-container {
+  width: 350px;
+  margin: auto;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.result {
+  display: block;
+  padding: 4px;
+}
+
+.result:hover {
+  cursor: pointer;
+  background-color: beige;
+}
+h1 {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 36px;
+}

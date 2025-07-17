@@ -1,49 +1,69 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import "./styles.css";
 
-const SearchPage = () => {
-   const [searchQuery, setSearchQuery] = useState('');
-   const [searchResult, setSearchResult] = useState([]);
-   const [displaySuggestion, setDisplaySuggestion] = useState(false)
+export default function SearchPage() {
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState([]);
+  const [showResult, setShowResult] = useState(false);
+  const [cachedResult, setCachedResult] = useState({});
 
-
-  useEffect(()=>{
-    const timer = setTimeout(()=> {     
-        getSearchSuggestion()
-    }, 200)
-    return ()=> {
-        clearTimeout(timer);
+  const fetchData = async () => {
+    if (input == "") {
+      setResult([]);
+      return;
     }
-  }, [searchQuery])
+    if (cachedResult[input]) {
+      setResult(cachedResult[input]);
+      return;
+    }
+    console.log("Api call", input);
+    const response = await fetch(
+      "https://dummyjson.com/recipes/search?q=" + input
+    );
 
- const getSearchSuggestion = async() => {
-    const response = await fetch("http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" + searchQuery)
     const data = await response.json();
-    setSearchResult(data[1])
-    console.log("Api called");
- }
+    console.log(data);
+    setResult(data?.recipes);
+    setCachedResult((pre) => ({ ...pre, [input]: data?.recipes }));
+  };
 
+  useEffect(() => {
+    const timer = setTimeout(() => fetchData(), 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input]);
   return (
-    <div className='relative'>
-        <div className='flex justify-center'>
-           <h1 className='text-6xl'>Search bar</h1>
-        </div>
-        <div className='flex mt-12 justify-center'>
-            <input type='text' placeholder='Search your text here' onBlur={()=> setDisplaySuggestion(false)} onChange={(e)=> {setSearchQuery(e.target.value) 
-            }} onFocus={() => setDisplaySuggestion(true)} className='border border-black rounded-lg p-2 w-72'/>
-            <button className='ml-4'>
-            <img className='w-8' src={require('./magnifying-glass.png')} alt="magnifying-glass"/>
-            </button>
-        </div>
-        { searchResult && 
-        <div className='flex justify-center'>
-            <ul className='w-80 shadow-md'>
-                { displaySuggestion && searchResult.map((text, index)=>{return <li key={index} className='border-t-[1px] pt-2 border-gray-300'>{text}</li>})}
-            </ul>
-        </div>
-
-        }
+    <div className="App">
+      <h1>Auto complete search bar</h1>
+      <h2>Search recipes</h2>
+      <div>
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Enter the words"
+          value={input}
+          onFocus={() => setShowResult(true)}
+          onBlur={() => setShowResult(false)}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        {showResult && result.length > 0 ? (
+          <div className="result-container">
+            {result.map((item) => {
+              return (
+                <span className="result" key={item.id}>
+                  {item.name}
+                </span>
+              );
+            })}
+          </div>
+        ) : input.length > 0 && showResult ? (
+          <p>No result found</p>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
-  )
+  );
 }
-
-export default SearchPage

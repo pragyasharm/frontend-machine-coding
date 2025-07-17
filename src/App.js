@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Im
 import React from "react";
 import Body from "./Components/Body";
 import Header from "./Components/Header";
-import ProductListpage from "./Components/Products/ProductListpage";
-import Scroller from "./Components/Products/Scroller";
-import MainProductContainer from "./Components/Products/MainProductContainer";
 import MoveSwapComponent from "./Components/MoveNswap/MoveSwapComponent";
 import Calculator from "./Components/Calculator/Calculator";
 import Accordian from "./Components/Accordian/Accordian";
@@ -30,9 +27,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Body />} />
-          <Route index element={<ProductListpage />} />
-          <Route path="/scroller" element={<Scroller />} />
-          <Route path="/product-card" element={<MainProductContainer />} />
+
+          <Route index element={<RedditComment />} />
+          <Route path="/reddit-comment" element={<RedditComment />} />
           <Route path="/move-swap" element={<MoveSwapComponent />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/context" element={<Context />} />
@@ -45,7 +42,6 @@ function App() {
           <Route path="/progress-bar" element={<ProgressContainer />} />
           <Route path="/nested-checkbox" element={<NestedCheckbox />} />
           <Route path="/otp-input" element={<OTPInput />} />
-          <Route path="/reddit-comment" element={<RedditComment />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />
