@@ -6,6 +6,7 @@ export default function SearchPage() {
   const [result, setResult] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [cachedResult, setCachedResult] = useState({});
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   const fetchData = async () => {
     if (input == "") {
@@ -16,20 +17,35 @@ export default function SearchPage() {
       setResult(cachedResult[input]);
       return;
     }
-    console.log("Api call", input);
     const response = await fetch(
       "https://dummyjson.com/recipes/search?q=" + input
     );
 
     const data = await response.json();
-    console.log(data);
     setResult(data?.recipes);
     setCachedResult((pre) => ({ ...pre, [input]: data?.recipes }));
   };
 
+  const handleKeyDown = (e) => {
+    if (result.length === 0 && input.length === 0) return;
+    if (e.key === "ArrowUp") {
+      setHighlightedIndex((pre) => {
+        return pre <= 0 ? result.length - 1 : --pre;
+      });
+    }
+    if (e.key === "ArrowDown") {
+      setHighlightedIndex((pre) => {
+        return pre < result.length - 1 ? ++pre : 0;
+      });
+    }
+    if (e.key === "Enter") {
+      setInput(result[highlightedIndex].name);
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => fetchData(), 300);
-
+    setHighlightedIndex(-1);
     return () => {
       clearTimeout(timer);
     };
@@ -46,13 +62,19 @@ export default function SearchPage() {
           value={input}
           onFocus={() => setShowResult(true)}
           onBlur={() => setShowResult(false)}
+          onKeyDown={(e) => handleKeyDown(e)}
           onChange={(e) => setInput(e.target.value)}
         />
         {showResult && result.length > 0 ? (
           <div className="result-container">
-            {result.map((item) => {
+            {result.map((item, index) => {
               return (
-                <span className="result" key={item.id}>
+                <span
+                  className={`result ${
+                    index === highlightedIndex ? " highlighted" : ""
+                  }`}
+                  key={item.id}
+                >
                   {item.name}
                 </span>
               );

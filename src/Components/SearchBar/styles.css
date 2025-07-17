@@ -17,6 +17,11 @@
   padding: 4px;
 }
 
+.result.highlighted {
+  background-color: beige;
+  border-left: 1px solid blue;
+}
+
 .result:hover {
   cursor: pointer;
   background-color: beige;
