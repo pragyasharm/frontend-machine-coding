@@ -19,6 +19,7 @@ import ProgressContainer from "./Components/Progress-bar/ProgressContainer";
 import NestedCheckbox from "./Components/Nested-Checkboxes/NestedCheckbox";
 import OTPInput from "./Components/OTP-Input/OTPInput";
 import RedditComment from "./Components/Reddit/RedditComment";
+import MatchPairGame from "./Components/Match-pair/MatchPairGame";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/progress-bar" element={<ProgressContainer />} />
           <Route path="/nested-checkbox" element={<NestedCheckbox />} />
           <Route path="/otp-input" element={<OTPInput />} />
+          <Route path="/match-pair" element={<MatchPairGame />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />

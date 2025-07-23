@@ -1,0 +1,23 @@
+.match-pair {
+  text-align: center;
+  padding: 20px;
+}
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 80px);
+  justify-content: center;
+}
+.card {
+  border-radius: 8px;
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+}
+.card.revealed {
+  background-color: rgb(249, 243, 243);
+}

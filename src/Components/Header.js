@@ -40,6 +40,9 @@ const Header = () => {
       <Link className="p-2" to="/reddit-comment">
         Reddit comment
       </Link>
+      <Link className="p-2" to="/match-Pair">
+        Match pair game
+      </Link>
     </div>
   );
 };
