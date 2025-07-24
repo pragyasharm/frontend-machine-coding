@@ -20,6 +20,7 @@ const KanbanBoard = () => {
   const [editItemId, setEditItemId] = useState(null);
   const [editInput, setEditInput] = useState(null);
   const [dragging, setDragging] = useState(null);
+  const [activeDropZone, setActiveDropZone] = useState(null);
 
   const handleAddTask = (columnId) => {
     const addedTask = {
@@ -50,23 +51,42 @@ const KanbanBoard = () => {
     setEditInput("");
   };
 
-  const onDragStart = (currentTask, currentColumnId) => {
-    setDragging({ currentTask, currentColumnId });
+  const onDragStart = (currentTask, fromColumn, fromIndex) => {
+    setDragging({ currentTask, fromColumn, fromIndex });
   };
 
-  const onDrop = (target) => {
-    if (!target || target === dragging.currentColumnId) return;
-
+  const handleTaskDrop = (toColumn, toIndex) => {
+    if (!toColumn) return;
+    console.log(
+      "from",
+      dragging.fromColumn,
+      dragging.fromIndex,
+      "to",
+      toColumn,
+      toIndex
+    );
     setBoard((pre) => {
-      const sourceItems = pre[dragging.currentColumnId].filter(
-        (item) => item.id !== dragging.currentTask.id
+      if (dragging.fromColumn == toColumn) {
+        const tasks = [...pre[dragging.fromColumn]];
+        const filtered = tasks.filter(
+          (_, index) => index != dragging.fromIndex
+        );
+        const reordered = [
+          ...filtered.slice(0, toIndex),
+          dragging.currentTask,
+          ...filtered.slice(toIndex),
+        ];
+        return { ...pre, [toColumn]: reordered };
+      }
+      const fromTasks = [...pre[dragging.fromColumn]].filter(
+        (_, index) => index != dragging.fromIndex
       );
-      const targetItems = [...pre[target], dragging.currentTask];
-      return {
-        ...pre,
-        [target]: targetItems,
-        [dragging.currentColumnId]: sourceItems,
-      };
+      const toTasks = [
+        ...pre[toColumn].slice(0, toIndex),
+        dragging.currentTask,
+        ...pre[toColumn].slice(toIndex),
+      ];
+      return { ...pre, [dragging.fromColumn]: fromTasks, [toColumn]: toTasks };
     });
   };
 
@@ -77,12 +97,7 @@ const KanbanBoard = () => {
       <h2>Kanban Board</h2>
       <div className="board-columns">
         {Object.entries(board).map(([columnId, tasks]) => (
-          <div
-            key={columnId}
-            className="board-column"
-            onDragOver={onDragOver}
-            onDrop={() => onDrop(columnId)}
-          >
+          <div key={columnId} className="board-column">
             <h3 className="column-header">{columnId}</h3>
 
             {inputVisible[columnId] ? (
@@ -127,57 +142,92 @@ const KanbanBoard = () => {
             )}
 
             <div className="task-list">
-              {tasks.map((task) => (
-                <div
-                  key={task.id}
-                  className="task-card"
-                  draggable
-                  onDragStart={() => onDragStart(task, columnId)}
-                >
-                  {editItemId === task.id ? (
-                    <div className="edit-card">
-                      <input
-                        type="text"
-                        value={editInput}
-                        onChange={(e) => setEditInput(e.target.value)}
-                        className="edit-input"
-                      />
-                      <div className="edit-actions">
-                        <button onClick={() => handleEditTaskInline(columnId)}>
-                          ✅
-                        </button>
-                        <button onClick={() => setEditItemId(null)}>❌</button>
+              {tasks.map((task, index) => (
+                <React.Fragment key={task.id}>
+                  <div
+                    className={`drop-zone ${
+                      activeDropZone === `${columnId}-${index}` ? "active" : ""
+                    }`}
+                    onDragOver={onDragOver}
+                    onDrop={() => {
+                      handleTaskDrop(columnId, index);
+                      setActiveDropZone(null);
+                    }}
+                    onDragEnter={() =>
+                      setActiveDropZone(`${columnId}-${index}`)
+                    }
+                    onDragLeave={() => setActiveDropZone(null)}
+                  ></div>
+                  <div
+                    className="task-card"
+                    draggable
+                    onDragStart={() => onDragStart(task, columnId, index)}
+                  >
+                    {editItemId === task.id ? (
+                      <div className="edit-card">
+                        <input
+                          type="text"
+                          value={editInput}
+                          onChange={(e) => setEditInput(e.target.value)}
+                          className="edit-input"
+                        />
+                        <div className="edit-actions">
+                          <button
+                            onClick={() => handleEditTaskInline(columnId)}
+                          >
+                            ✅
+                          </button>
+                          <button onClick={() => setEditItemId(null)}>
+                            ❌
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <div className="task-content">
-                      <span>{task.text}</span>
-                      <div>
-                        <span
-                          className="delete-icon"
-                          onClick={() =>
-                            setBoard((pre) => ({
-                              ...pre,
-                              [columnId]: pre[columnId].filter(
-                                (item) => item.id !== task.id
-                              ),
-                            }))
-                          }
-                        >
-                          🗑️
-                        </span>
-                        <span
-                          onClick={() => handleEditTaskClick(task)}
-                          className="edit-icon"
-                          style={{ marginLeft: "10px" }}
-                        >
-                          ✍🏻
-                        </span>
+                    ) : (
+                      <div className="task-content">
+                        <span>{task.text}</span>
+                        <div>
+                          <span
+                            className="delete-icon"
+                            onClick={() =>
+                              setBoard((pre) => ({
+                                ...pre,
+                                [columnId]: pre[columnId].filter(
+                                  (item) => item.id !== task.id
+                                ),
+                              }))
+                            }
+                          >
+                            🗑️
+                          </span>
+                          <span
+                            onClick={() => handleEditTaskClick(task)}
+                            className="edit-icon"
+                            style={{ marginLeft: "10px" }}
+                          >
+                            ✍🏻
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                </React.Fragment>
               ))}
+              <div
+                className={`drop-zone end ${
+                  activeDropZone === `${columnId}-${tasks.length}`
+                    ? "active"
+                    : ""
+                }`}
+                onDragOver={onDragOver}
+                onDragEnter={() =>
+                  setActiveDropZone(`${columnId}-${tasks.length}`)
+                }
+                onDragLeave={() => setActiveDropZone(null)}
+                onDrop={() => {
+                  handleTaskDrop(columnId, tasks.length);
+                  setActiveDropZone(null);
+                }}
+              ></div>
             </div>
           </div>
         ))}

@@ -170,15 +170,27 @@
 }
 
 .edit-actions button {
-  background-color: #4caf50;
+  background-color: white;
   border: none;
   padding: 4px 8px;
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
 }
 
-.edit-actions button:last-child {
-  background-color: #f44336;
+.drop-zone {
+  height: 8px;
+  margin: 4px 0;
+  background-color: transparent;
+  transition: background-color 0.2s ease, height 0.2s ease;
+}
+.drop-zone.end {
+  height: 80px;
+}
+
+.drop-zone.active {
+  background-color: #60a5fa; /* blue highlight */
+  height: 100px;
+  border-radius: 4px;
 }
