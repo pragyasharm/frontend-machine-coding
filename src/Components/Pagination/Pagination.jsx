@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import "./styles.css";
-import ProductCard from "./ProductCard.js";
-import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
+import ProductCard from "./ProductCard";
+import "./style.css";
 
 const PAGE_SIZE = 10;
 
@@ -45,11 +44,11 @@ const Pagination = () => {
   if (products.length === 0) return <p>No products found</p>;
 
   return (
-    <div>
-      <h1>Pagination</h1>
+    <div className="pagination">
+      <h2>Pagination</h2>
       <div>
         <button id="previous" onClick={handlePrev} disabled={currentPage === 0}>
-          <FiChevronsLeft />
+          {"<<"}
         </button>
 
         {Array.from({ length: totalPage }, (_, index) => (
@@ -67,7 +66,7 @@ const Pagination = () => {
           onClick={handleNext}
           disabled={currentPage === totalPage - 1}
         >
-          <FiChevronsRight />
+          {">>"}
         </button>
       </div>
 

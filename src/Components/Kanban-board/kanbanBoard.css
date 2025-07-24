@@ -1,0 +1,184 @@
+.kanban-board {
+  margin: 40px auto;
+  width: 1000px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.board-columns {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.board-column {
+  background-color: #f4f6f8;
+  border-radius: 8px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  max-height: 550px;
+  overflow: hidden;
+}
+
+.column-header {
+  text-transform: capitalize;
+  font-size: 20px;
+  background-color: #111;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.task-list {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 6px;
+}
+
+.task-card {
+  padding: 10px 12px;
+  margin: 10px 0;
+  background-color: #e0e7ff;
+  border-radius: 6px;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.task-content span {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.task-content p {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.task-input-area {
+  margin-bottom: 12px;
+}
+
+.task-input-area input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 6px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.add-btn,
+.cancel-btn,
+.show-input-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.show-input-btn {
+  background-color: #2e7d32;
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.add-btn:hover {
+  background-color: #43a047;
+}
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+.show-input-btn:hover {
+  background-color: #1b5e20;
+}
+
+.delete-icon,
+.edit-icon {
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.delete-icon:hover,
+.edit-icon:hover {
+  transform: scale(1.2);
+}
+
+.task-edit-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-edit-input {
+  padding: 6px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.edit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #dbeafe; /* soft blue like task-card */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.edit-input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.edit-actions button {
+  background-color: #4caf50;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-actions button:last-child {
+  background-color: #f44336;
+}

@@ -1,0 +1,19 @@
+.pagination .product-card img {
+  width: 200px;
+  height: 200px;
+}
+
+.pagination .product-card {
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.pagination button.active {
+  border-color: blue;
+}
+.pagination button {
+  margin: 4px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}

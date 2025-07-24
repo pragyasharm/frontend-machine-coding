@@ -6,7 +6,7 @@ export const List = ({ list, handleAddFolder, handleDeleteFolder }) => {
   const [isExpanded, setIsExpanded] = useState({});
 
   return (
-    <div className="container">
+    <div className="file-container">
       {list &&
         list.map((node) => {
           return (

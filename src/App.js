@@ -20,6 +20,7 @@ import NestedCheckbox from "./Components/Nested-Checkboxes/NestedCheckbox";
 import OTPInput from "./Components/OTP-Input/OTPInput";
 import RedditComment from "./Components/Reddit/RedditComment";
 import MatchPairGame from "./Components/Match-pair/MatchPairGame";
+import KanbanBoard from "./Components/Kanban-board/KanbanBoard";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/nested-checkbox" element={<NestedCheckbox />} />
           <Route path="/otp-input" element={<OTPInput />} />
           <Route path="/match-pair" element={<MatchPairGame />} />
+          <Route path="/kanban-board" element={<KanbanBoard />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />

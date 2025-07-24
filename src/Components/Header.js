@@ -1,48 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="bg-gray-200 p-2 flex">
-      <Link className="p-2" to="/">
+    <div className="header">
+      <NavLink className="p-2" to="/">
         Home
-      </Link>
-      <Link className="p-2" to="/move-swap">
+      </NavLink>
+      <NavLink className="p-2" to="/move-swap">
         Move&Swap
-      </Link>
-      <Link className="p-2" to="/calculator">
+      </NavLink>
+      <NavLink className="p-2" to="/calculator">
         Calculator
-      </Link>
-      <Link className="p-2" to="/accordian">
+      </NavLink>
+      <NavLink className="p-2" to="/accordian">
         Accordian
-      </Link>
-      <Link className="p-2" to="/search">
+      </NavLink>
+      <NavLink className="p-2" to="/search">
         Search
-      </Link>
-      <Link className="p-2" to="/game">
+      </NavLink>
+      <NavLink className="p-2" to="/game">
         TicTacToe
-      </Link>
-      <Link className="p-2" to="/file-folder">
+      </NavLink>
+      <NavLink className="p-2" to="/file-folder">
         File-folder
-      </Link>
-      <Link className="p-2" to="/pagination">
+      </NavLink>
+      <NavLink className="p-2" to="/pagination">
         Pagination
-      </Link>
-      <Link className="p-2" to="/progress-bar">
+      </NavLink>
+      <NavLink className="p-2" to="/progress-bar">
         Progess-bar
-      </Link>
-      <Link className="p-2" to="/nested-checkbox">
+      </NavLink>
+      <NavLink className="p-2" to="/nested-checkbox">
         Nested-checkbox
-      </Link>
-      <Link className="p-2" to="/otp-input">
+      </NavLink>
+      <NavLink className="p-2" to="/otp-input">
         OTP-input
-      </Link>
-      <Link className="p-2" to="/reddit-comment">
+      </NavLink>
+      <NavLink className="p-2" to="/reddit-comment">
         Reddit comment
-      </Link>
-      <Link className="p-2" to="/match-Pair">
+      </NavLink>
+      <NavLink className="p-2" to="/match-Pair">
         Match pair game
-      </Link>
+      </NavLink>
+      <NavLink className="p-2" to="/kanban-board">
+        kanban board
+      </NavLink>
     </div>
   );
 };

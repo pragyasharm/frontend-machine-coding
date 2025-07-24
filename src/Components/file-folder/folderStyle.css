@@ -1,11 +1,11 @@
-.container {
+.file-container {
   text-align: left;
   padding-left: 20px;
 }
-.folder {
+.file-container .folder {
   display: flex;
   gap: 10px;
 }
-.icon {
+.file-container .icon {
   width: 20px;
 }

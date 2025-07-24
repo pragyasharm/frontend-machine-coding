@@ -2,13 +2,13 @@
   text-align: center;
   padding: 20px;
 }
-.grid {
+.match-pair .grid {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(4, 80px);
   justify-content: center;
 }
-.card {
+.match-pair .card {
   border-radius: 8px;
   font-size: x-large;
   display: flex;
@@ -18,6 +18,16 @@
   height: 80px;
   background-color: #ccc;
 }
-.card.revealed {
+.match-pair .card.revealed {
   background-color: rgb(249, 243, 243);
+}
+.match-pair button {
+  width: 200px;
+  background-color: black;
+  color: white;
+}
+
+.match-pair button:hover {
+  width: 200px;
+  background-color: gray;
 }

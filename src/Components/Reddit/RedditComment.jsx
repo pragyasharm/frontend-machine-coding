@@ -20,7 +20,7 @@ const RedditComment = () => {
   };
 
   return (
-    <div>
+    <div className="reddit">
       <h2 style={{ fontSize: "36px", margin: "14px" }}>RedditComment</h2>
       <input
         style={{ marginLeft: "10px", width: "400px" }}
