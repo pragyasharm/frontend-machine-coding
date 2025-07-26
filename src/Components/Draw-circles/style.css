@@ -1,0 +1,39 @@
+.circle-drawer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle-drawer .drawing-area {
+  width: 400px;
+  height: 300px;
+  border: 2px solid #888;
+  position: relative;
+  background-color: #fefefe;
+  margin-bottom: 20px;
+}
+
+.circle-drawer .circle {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.circle-drawer .buttons {
+  display: flex;
+  gap: 10px;
+}
+.circle-drawer button {
+  border: 1px solid black;
+}
+
+.circle-drawer .undo-btn,
+.circle-drawer .redo-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}

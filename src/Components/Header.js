@@ -46,6 +46,12 @@ const Header = () => {
       <NavLink className="p-2" to="/kanban-board">
         kanban board
       </NavLink>
+      <NavLink className="p-2" to="/temperature-converter">
+        Temparature converter
+      </NavLink>
+      <NavLink className="p-2" to="/draw-circles">
+        Draw circles
+      </NavLink>
     </div>
   );
 };
