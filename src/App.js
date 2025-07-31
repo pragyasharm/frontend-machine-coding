@@ -1,6 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter and necessary components
-import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter and necessary components
 import Body from "./Components/Body";
 import Header from "./Components/Header";
 import MoveSwapComponent from "./Components/MoveNswap/MoveSwapComponent";
@@ -27,7 +26,7 @@ import StickyNote from "./Components/Sticky-notes/SitckyNote";
 
 function App() {
   return (
-    <Router basename="/frontend-machine-coding">
+    <Router>
       <div>
         <Header />
         <Routes>

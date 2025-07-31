@@ -10,8 +10,12 @@
 .sticky-note-container .add-btn {
   border-radius: 50%;
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 50px;
+  right: 40px;
+  width: 70px;
+  height: 70px;
+  font-size: xx-large;
+  text-align: center;
 }
 
 .sticky-note-container .note {
