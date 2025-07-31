@@ -7,6 +7,7 @@ function DrawCircles() {
   const drawingRef = useRef(null);
 
   const handleDraw = (e) => {
+    console.log(drawingRef.current.__proto__);
     // getBoundingClientRect() it provides property of rectangle left, top, right, bottom, x, y, width, and height
     const rect = drawingRef.current.getBoundingClientRect();
     const x = e.clientX - rect.x;

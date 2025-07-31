@@ -23,6 +23,7 @@ import MatchPairGame from "./Components/Match-pair/MatchPairGame";
 import KanbanBoard from "./Components/Kanban-board/KanbanBoard";
 import TempCoverter from "./Components/Temparature-converter/TempCoverter";
 import DrawCircles from "./Components/Draw-circles/DrawCircles";
+import StickyNote from "./Components/Sticky-notes/SitckyNote";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/kanban-board" element={<KanbanBoard />} />
           <Route path="/temperature-converter" element={<TempCoverter />} />
           <Route path="/draw-circles" element={<DrawCircles />} />
+          <Route path="/sticky-note" element={<StickyNote />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/accordian" element={<Accordian />} />

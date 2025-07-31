@@ -52,6 +52,9 @@ const Header = () => {
       <NavLink className="p-2" to="/draw-circles">
         Draw circles
       </NavLink>
+      <NavLink className="p-2" to="/sticky-note">
+        Sticky Note
+      </NavLink>
     </div>
   );
 };
